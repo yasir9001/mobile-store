@@ -203,8 +203,8 @@
             </div>
             <div class="brands-name">
               <ul id="cols">
-                <li><a href="#">User List</a></li>
-                <li><a href="#">Add Mobiles</a></li>
+                <li><a href="#" id="1" class="abc" onclick="fn_active1(this);">User List</a></li>
+                <li><a href="#" id="2" onclick="fn_active2(this);">Add Mobiles</a></li>
                 <!-- <li><a href="#">Apple</a></li>
                 <li><a href="#">Nokia</a></li>
                 <li><a href="#">Lg</a></li> -->
@@ -212,7 +212,7 @@
             </div>
           </div>
           <div class="main-panel">
-            <div class="display-block">
+            <div class="display-block" id="add-class1" >
               <div class="search">
                 <div class="search-box" id="f">
                   <h5>User Lists</h5>
@@ -265,6 +265,7 @@
                       type="text"
                       class="del-u"
                       placeholder="Enter the ID"
+                      required
                     />
                     <div class="product-button" id="Block-inline">
                       <button>Remove</button>
@@ -284,6 +285,7 @@
                       type="text"
                       class="del-u"
                       placeholder="Enter the ID or Name"
+                      required
                     />
                     <div class="product-button" id="Block-inline">
                       <button>Search</button>
@@ -325,7 +327,7 @@
               </div>
             </div>
 
-            <div class="display-block">
+            <div class="display-block display-none" id="add-class2">
               <div class="search">
                 <div class="search-box" id="f">
                   <h5>Add Mobile</h5>
@@ -334,109 +336,53 @@
               <div class="display-components">
                 <div class="user-list">
                   <div class="user-heading">
-                    User List:
+                    Form Fill for add mobile
                   </div>
-                  <div class="user-table">
-                    <table class="table">
-                      <thead class="thead-dark">
-                        <tr>
-                          <th scope="col">Id #</th>
-                          <th scope="col">User Name</th>
-                          <th scope="col">Password</th>
-                          <th scope="col">Email</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="user-del">
-                  <div class="user-heading">
-                    Remove the user:
-                  </div>
-                  <div class="del-group">
-                    <input
-                      type="text"
-                      class="del-u"
-                      placeholder="Enter the ID"
-                    />
-                    <div class="product-button" id="Block-inline">
-                      <button>Remove</button>
-                    </div>
-                  </div>
+                  <div class="add-mobile">
+                    <form>
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Company Name:</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control-plaintext" id="staticEmail" required placeholder="Enter Brand Name">
+                        </div>
+                      </div>
 
-                  <div class="display-msg">
-                    <h6>msg show</h6>
-                  </div>
-                </div>
-                <div class="user-del">
-                  <div class="user-heading">
-                    Search the user:
-                  </div>
-                  <div class="del-group">
-                    <input
-                      type="text"
-                      class="del-u"
-                      placeholder="Enter the ID or Name"
-                    />
-                    <div class="product-button" id="Block-inline">
-                      <button>Search</button>
-                    </div>
-                  </div>
-                  <div class="user-table">
-                    <table class="table">
-                      <thead class="thead-dark">
-                        <tr>
-                          <th scope="col">Id #</th>
-                          <th scope="col">User Name</th>
-                          <th scope="col">Password</th>
-                          <th scope="col">Email</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                      <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Mobile Name:</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control-plaintext" id="staticEmail" required placeholder="Enter Mobile name">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Mobile Price:</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control-plaintext" id="staticEmail" required placeholder="Enter price in dollars">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Mobile Color:</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control-plaintext" id="staticEmail" required placeholder="Enter Mobile color">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Mobile Imgs:</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control-plaintext" id="staticEmail" required placeholder="Enter Image path">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                          <input type="submit" class="btn btn-block" id="btn-color">
+                      </div>
+
+                    </form>
                   </div>
                 </div>
               </div>
-            </div>
+          </div>
           </div>
         </div>
       </section>
@@ -520,5 +466,19 @@
       ></a>
     </div>
     <input name="animation" type="hidden" />
+    <script>
+      function fn_active1(name){
+        name.classList.add("abc");
+        document.getElementById("2").classList.remove("abc");
+        document.getElementById("add-class1").classList.remove("display-none");
+        document.getElementById("add-class2").classList.add("display-none");
+      }
+      function fn_active2(name){
+        name.classList.add("abc");
+        document.getElementById("1").classList.remove("abc");
+        document.getElementById("add-class2").classList.remove("display-none");
+        document.getElementById("add-class1").classList.add("display-none");
+      }
+    </script>
   </body>
 </html>

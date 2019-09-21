@@ -1,10 +1,14 @@
-var config = {
-    apiKey: "AIzaSyBgVf_IU7sAPpA6OutO5LJcsxDuUre70A4",
-    authDomain: "firefly-34c7a.firebaseapp.com",
-    databaseURL: "https://firefly-34c7a.firebaseio.com",
-    projectId: "firefly-34c7a",
-    storageBucket: "firefly-34c7a.appspot.com",
-    messagingSenderId: "949652004647"
-};
+const firebaseConfig = {
+    apiKey: "AIzaSyD7sAr_KDy1ek6xa_-moboyCnPgq44HOCY",
+    authDomain: "reactapp1122.firebaseapp.com",
+    databaseURL: "https://reactapp1122.firebaseio.com",
+    projectId: "reactapp1122",
+    storageBucket: "reactapp1122.appspot.com",
+    messagingSenderId: "707202388277",
+    appId: "1:707202388277:web:17516996ce4c8aec"
+  };
 
 firebase.initializeApp(config);
+
+// initializes a global _db variable
+var _db = firebase.database().ref().child('mobileSite');

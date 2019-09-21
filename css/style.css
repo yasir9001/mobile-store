@@ -378,6 +378,7 @@ body{
     display:block;
     max-height: 40rem;
     overflow-y: auto;
+    overflow-x:hidden; 
     text-align: center;
 }
 .user-del{
@@ -433,7 +434,7 @@ body{
     outline: none;
     /* border-bottom:1px solid white; */
     color:white; 
-    background-color: #cc2952;
+    background-color: rgba(204, 41, 82, 0.9);
     border-radius:2rem;
     padding: 0.5rem 1rem; 
     transition: all .5s ease-in-out;
@@ -452,6 +453,7 @@ body{
     margin: 0;
     padding: 0.5rem;
     border:1px solid transparent;
+    outline: none;
 }
 #btn-color1{
     background-color: #cc2952;
@@ -460,6 +462,7 @@ body{
     margin: 0 1rem;
     padding: 0.5rem;
     border:1px solid transparent;
+    outline: none;
 }
 #btn-color1:hover,#btn-color:hover{
     background-color: white;
@@ -659,4 +662,29 @@ body{
     border:1px solid #cc2952;
     padding: 0.5rem 1rem;
     border-radius: 2rem;
+}
+::placeholder {
+    color: rgba(0, 0,0, 0.5);
+    opacity: 1; /* Firefox */
+  }
+#comment,#comment:active{
+    resize: none;
+    height: auto;
+    outline: none;
+    user-select: none;
+}
+#comment:focus{
+    outline: none;
+    user-select: none;
+}
+.radio1{
+    display: inline-block;
+    /* background-color: red; */
+    margin-left:1.2rem;
+    padding: 0rem 1rem;
+    text-align: left;
+    font-size:1.2rem;
+}
+.col-set{
+
 }

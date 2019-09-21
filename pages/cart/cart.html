@@ -10,7 +10,7 @@
   <link rel="shortcut icon" href="assets/images/basic-tablet.png" type="image/x-icon" />
   <meta name="description" content="developers" />
 
-  <title>Products</title>
+  <title>Carts</title>
   <link rel="preload" as="style" href="./../../assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css" />
   <link rel="stylesheet" href="./../../assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css" />
   <link rel="preload" as="style" href="./../../assets/web/assets/mobirise-icons/mobirise-icons.css" />
@@ -132,90 +132,34 @@
                                   <tr>
                                     <th scope="row">1</th>
                                     <td>Mark</td>
-                                    <td><div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-                                        <input type="number" id="number" value="0" />
-                                        <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div></td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
+                                    <td>
+                                      <div class="quantity-set">
+                                      <div class="value-button" id="decrease" onclick="decreaseValue(this)" value="Decrease Value">-</div>
+                                        <input type="number" id="number" value="0" readonly />
+                                      <div class="value-button" id="increase" onclick="increaseValue(this)" value="Increase Value">+</div>
+                                    </div>
+                                    </td>
+
+                                    <td>$1100</td>
+                                    <td><a id="data-kill" onclick="fn_remove(this);">&times;</a></td>
                                   </tr>
                                   <tr>
                                         <th scope="row">1</th>
                                         <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
+                                        <td><div class="quantity-set">
+                                            <div class="value-button" id="decrease" onclick="decreaseValue(this)" value="Decrease Value">-</div>
+                                              <input type="number" id="number" value="0" readonly />
+                                            <div class="value-button" id="increase" onclick="increaseValue(this)" value="Increase Value">+</div>
+                                          </div></td>
+                                        <td>$1100</td>
+                                        <td><a id="data-kill" onclick="fn_remove(this);">&times;</a></td>
                                       </tr>
                                 </tbody>
                               </table>
                             </div>
-                          </div>
-                          <div class="user-del">
-                            <div class="user-heading">
-                              Remove the user:
-                            </div>
-                            <div class="del-group">
-                              <input
-                                type="text"
-                                class="del-u"
-                                placeholder="Enter the ID"
-                                required
-                              />
-                              <div class="product-button" id="Block-inline">
-                                <button>Remove</button>
+                            <div class="btn-heading">
+                                <input type="button" class="btn btn-block" id="btn-color" value="Check-Out">
                               </div>
-                            </div>
-          
-                            <div class="display-msg">
-                              <h6>msg show</h6>
-                            </div>
-                          </div>
-                          <div class="user-del">
-                            <div class="user-heading">
-                              Search the user:
-                            </div>
-                            <div class="del-group">
-                              <input
-                                type="text"
-                                class="del-u"
-                                placeholder="Enter the ID or Name"
-                                required
-                              />
-                              <div class="product-button" id="Block-inline">
-                                <button>Search</button>
-                              </div>
-                            </div>
-                            <div class="user-table">
-                              <table class="table">
-                                <thead class="thead-dark">
-                                  <tr>
-                                    <th scope="col">Id #</th>
-                                    <th scope="col">User Name</th>
-                                    <th scope="col">Password</th>
-                                    <th scope="col">Email</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
                           </div>
                         </div>
                       </div>
@@ -286,19 +230,32 @@
   </div>
   <input name="animation" type="hidden" />
   <script>
-      function increaseValue() {
-  var value = parseInt(document.getElementById('number').value, 10);
+      
+function decreaseValue(val1) {
+  var value = parseInt(val1.nextElementSibling.value, 10);
+  console.log(value);
+  value = isNaN(value) ? 0 : value;
+  // value < 1 ? value = 1 : '';
+  if (value<1){
+    value=0;
+  }
+  else{
+    value--;
+  }
+  val1.nextElementSibling.value = value;
+  console.log(val1.nextElementSibling.value);
+}
+function increaseValue(val2) {
+  var value = parseInt(val2.previousElementSibling.value, 10);
+  console.log(value);
   value = isNaN(value) ? 0 : value;
   value++;
-  document.getElementById('number').value = value;
+  val2.previousElementSibling.value = value;
+  console.log(val2.previousElementSibling.value);
 }
-
-function decreaseValue() {
-  var value = parseInt(document.getElementById('number').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number').value = value;
+function fn_remove(e){
+  console.log("@3231");
+  e.parentElement.parentElement.remove();
 }
   </script>
 </body>

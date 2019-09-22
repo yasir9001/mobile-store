@@ -14,7 +14,7 @@
                     `<div class="product-position">
                     <div class="product-list">
                       <div class="product-spec-front">
-                        <div class="mobile-pic">
+                        <div class="mobile-pic" style="background-image:url(${e.image})">
                           <h5>${e.brand} ${e.name}</h5>
                         </div>
                       </div>
@@ -34,6 +34,7 @@
                   </div>`
                 )
             }).join('');
+          console.log(arr)  
         })
     }
 )()

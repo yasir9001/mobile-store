@@ -219,7 +219,7 @@ body{
     height: 100%;
     background-size: cover;
     background-position: center;
-    background-image:url(../img/iphone\ X.jpg); 
+    /* background-image:url(../img/iphone\ X.jpg);  */
     text-align: center;
     padding-top:90%;
     border-radius: 2rem;
@@ -685,6 +685,6 @@ body{
     text-align: left;
     font-size:1.2rem;
 }
-.col-set{
-
+.display-components .user-list:nth-child(2){
+    margin-top:2rem;
 }

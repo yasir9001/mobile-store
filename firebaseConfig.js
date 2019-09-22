@@ -8,7 +8,7 @@ const firebaseConfig = {
     appId: "1:707202388277:web:17516996ce4c8aec"
   };
 
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 
 // initializes a global _db variable
 var _db = firebase.database().ref().child('mobileSite');

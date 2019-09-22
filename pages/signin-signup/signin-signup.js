@@ -5,8 +5,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
-
-const db = firebase.database();
+let db = _db;
 
 function register(theForm) {
     var inputUsername = document.querySelector("#username").value;
@@ -18,11 +17,15 @@ function register(theForm) {
             .then(e => {
                 var cube = document.querySelector('.mydiv');
                 cube.classList.toggle('styler');
-
                 document.querySelector('.login input[type=email]').value = "";
                 document.querySelector('.login input[type=password]').value = "";
                 document.querySelector('#cnf-password').value = "";
                 localStorage.setItem('user', JSON.stringify(e.user))
+                db.child(`users/${e.user.uid}`)
+                    .set({
+                        email:inputUsername,
+                        uid:e.user.uid
+                    })
             })
             .catch(function (error) {
                 var errorCode = error.code;
@@ -42,9 +45,6 @@ function register(theForm) {
 function login(theForm) {
     var inputUsername = document.querySelector("#username1").value;
     var inputPassword = document.querySelector("#password1").value;
-    // console.log(inputUsername,inputPassword);
-    // console.log(inputUsername.value,inputPassword.value)
-
     firebase.auth().signInWithEmailAndPassword(inputUsername, inputPassword)
         .then(e => {
             localStorage.setItem('user', JSON.stringify(e.user))

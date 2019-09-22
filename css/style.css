@@ -430,7 +430,7 @@ body{
 .add-mobile{
     margin-top:2rem; 
 }
-#staticEmail{
+.staticEmail{
     outline: none;
     /* border-bottom:1px solid white; */
     color:white; 
@@ -439,7 +439,7 @@ body{
     padding: 0.5rem 1rem; 
     transition: all .5s ease-in-out;
 }
-#staticEmail:focus{
+.staticEmail:focus{
     /* border-bottom:1px solid white; */
     color:#cc2952; 
     background-color:white;

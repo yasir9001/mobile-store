@@ -41,14 +41,11 @@
                 )
             }).join('')
         })
-
-
-
     }
 )()
 
 
-// upload mobile item to storage bucket
+// upload mobile image to storage bucket and then related data to database
 function addMobile() {
     let brand = document.getElementById('brand');
     let name = document.getElementById('name');
@@ -82,8 +79,7 @@ function addMobile() {
         })
 }
 
-
+// removes mobile form the database
 function removeMobile(e){
-    // console.log(e.dataset.id)
     _db.child(`mobiles/${e.dataset.id}`).remove()
 }

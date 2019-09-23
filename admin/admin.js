@@ -33,7 +33,7 @@
                     `<tr>
                         <th scope="row">${e._id}</th>
                         <td>${e.brand}</td>
-                        <td>${e.name}</td>
+                        <td>${e.name}</td>  
                         <td>${e.color}</td>
                         <td>PKR ${e.price}</td>
                         <td><a id="data-kill" data-id="${e._id}" onclick="removeMobile(this);">&times;</a></td>
@@ -80,6 +80,14 @@ function addMobile() {
 }
 
 // removes mobile form the database
-function removeMobile(e){
+function removeMobile(e) {
     _db.child(`mobiles/${e.dataset.id}`).remove()
+}
+
+
+
+// removes user
+function removeUser() {
+    let input = document.querySelector('#del-user-id');
+    _db.child(`users/${input.value}`).remove().then(() => input.value = "")
 }

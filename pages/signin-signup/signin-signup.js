@@ -23,8 +23,8 @@ function register(theForm) {
                 localStorage.setItem('user', JSON.stringify(e.user))
                 db.child(`users/${e.user.uid}`)
                     .set({
-                        email:inputUsername,
-                        uid:e.user.uid
+                        email: inputUsername,
+                        uid: e.user.uid
                     })
             })
             .catch(function (error) {
@@ -47,8 +47,24 @@ function login(theForm) {
     var inputPassword = document.querySelector("#password1").value;
     firebase.auth().signInWithEmailAndPassword(inputUsername, inputPassword)
         .then(e => {
-            localStorage.setItem('user', JSON.stringify(e.user))
-            location.replace('./../../index.html');
+            _db.child(`users/${e.user.uid}`).once('value', (snap) => {
+
+                // if user data is present in the database then route to home page else notify the user and delete him.
+                if (snap.val()) {
+                    localStorage.setItem('user', JSON.stringify(e.user))
+                    location.replace('./../../index.html');
+                } else {
+                    const user = firebase.auth().currentUser;
+                    user.delete().then(function () {
+                        // User deleted.
+                    }).catch(function (error) {
+                        // An error happened.
+                        alert(error)
+                    });
+                    alert('Your accout has been deleted by the admin, Register with a new Account')
+                }
+            })
+
         }).catch(function (error) {
             var errorCode = error.code;
             var errorMessage = error.message;

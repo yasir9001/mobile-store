@@ -29,6 +29,12 @@
   <link rel="stylesheet" href="./../../css/style.css" />
   <link rel="preload" as="style" href="./../../assets/mobirise/css/mbr-additional.css" />
   <link rel="stylesheet" href="./../../assets/mobirise/css/mbr-additional.css" type="text/css" />
+
+
+  <!-- load firebase web sdk -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+  <!-- load the firebase config file -->
+  <script src="./../../firebaseConfig.js"></script>
 </head>
 
 <body>
@@ -70,7 +76,8 @@
                 <img src="./../../assets/images/basic-tablet.png" alt="Mobirise" title="" style="height: 3.8rem;" />
               </a>
             </span>
-            <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5" href="./../../index.html">Mobile
+            <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5"
+                href="./../../index.html">Mobile
                 Store</a></span>
           </div>
         </div>
@@ -96,7 +103,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link link text-white display-4" href="#"><span
+              <a onclick="signout()" class="nav-link link text-white display-4" href="#"><span
                   class="mbrib-login mbr-iconfont mbr-iconfont-btn"></span>Sign out</a>
             </li>
           </ul>
@@ -309,6 +316,9 @@
         class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a>
   </div>
   <input name="animation" type="hidden" />
+
+  <script src="./contact-us.js"></script>
+
 </body>
 
 </html>

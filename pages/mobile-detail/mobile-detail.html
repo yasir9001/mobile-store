@@ -30,6 +30,12 @@
   <link rel="stylesheet" href="./../../css/style.css" />
   <link rel="preload" as="style" href="./../../assets/mobirise/css/mbr-additional.css" />
   <link rel="stylesheet" href="./../../assets/mobirise/css/mbr-additional.css" type="text/css" />
+
+
+  <!-- load firebase web sdk -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+  <!-- load the firebase config file -->
+  <script src="./../../firebaseConfig.js"></script>
 </head>
 
 <body>
@@ -74,7 +80,8 @@
                 <img src="./../../assets/images/basic-tablet.png" alt="Mobirise" title="" style="height: 3.8rem;" />
               </a>
             </span>
-            <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5" href="./../../index.html">Mobile
+            <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5"
+                href="./../../index.html">Mobile
                 Store</a></span>
           </div>
         </div>
@@ -100,7 +107,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link link text-white display-4" href="#"><span
+              <a onclick="signout()" class="nav-link link text-white display-4" href="#"><span
                   class="mbrib-login mbr-iconfont mbr-iconfont-btn"></span>Sign out</a>
             </li>
           </ul>
@@ -111,119 +118,120 @@
     <section class="products">
       <div class="product-groups">
         <div class="main-panel">
-                <div class="display-block" id="add-class1" >
-                        <div class="search">
-                          <div class="search-box" id="f">
-                            <h5><span>Mobile</span>-Specification</h5>
-                          </div>
-                        </div>
-                          <div class="mobile-details">
-                              <div class="mobile-img">
-                                  <div class="mobile-div">
-                                  <div class="pic-of-mobile">
-                                  </div>
-                                  <div class="mobile-name">
-                                      <span class="mobile-n">Apple Iphone X</span>
-                                      <span class="mobile-p">$1100</span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="mobile-spec">
-                                  <div class="mobile-func">
-                                      <ul>
-                                          <li><strong>NETWORK:</strong>
-                                            <p>GSM / CDMA / HSPA / EVDO / LTE</p>
-                                        </li>
-                                        <li><strong>LAUNCH:</strong>
-                                            <p>2019, September</p>
-                                        </li>
-                                        <li><strong>BODY:</strong>
-                                            <p><strong>Dimensions:</strong>	158 x 77.8 x 8.1 mm (6.22 x 3.06 x 0.32 in)<br>
-                                                   <strong> Weight:</strong>	226 g (7.97 oz)<br>
-                                                   <strong> Build:</strong>	Front/back glass, stainless steel frame<br>
-                                                   <strong> SIM:</strong>	Single SIM (Nano-SIM and/or Electronic SIM card) or Dual SIM (Nano-SIM, dual stand-by) - for China<br>
-                                                         IP68 dust/water resistant (up to 4m for 30 mins)
-                                                    Apple Pay (Visa, MasterCard, AMEX certified)
-                                                    </p>
-                                        </li>
-                                        <li><strong>DISPLAY:</strong>
-                                            <p><strong>Type:</strong>	Super Retina XDR OLED capacitive touchscreen, 16M colors<br>
-                                                   <strong> Size:	</strong>6.5 inches, 102.9 cm2 (~83.7% screen-to-body ratio)<br>
-                                                   <strong> Resolution:	</strong>1242 x 2688 pixels, 19.5:9 ratio (~458 ppi density)<br>
-                                                   <strong> Protection:</strong>	Scratch-resistant glass, oleophobic coating
-                                                         800 nits
-                                                    Dolby Vision
-                                                    HDR10
-                                                    Wide color gamut
-                                                    True-tone
-                                                    120 Hz touch-sensing</p>
-                                        </li>
-                                        <li><strong>PLATFORM:</strong>
-                                            <p><strong>OS:</strong>	iOS 13<br>
-                                                    <strong>Chipset:</strong>	Apple A13 Bionic (7 nm+)<br>
-                                                    <strong>CPU:</strong>	Hexa-core (2x2.65 GHz Lightning + 4x1.8 GHz Thunder)<br>
-                                                    <strong>GPU:</strong>	Apple GPU (4-core graphics)</p>
-                                        </li>
-                                        <li><strong>MEMORY:</strong>
-                                            <p><strong>Card slot:</strong>	No<br>
-                                                    <strong>Internal:</strong>	64GB 4GB RAM, 256GB 4GB RAM, 512GB 4GB RAM</p>
-                                        </li>
-                                        <li><strong>MAIN CAMERA</strong>
-                                            <p><strong>Triple:</strong>	12 MP, f/1.8, 26mm (wide), 1/2.55", 1.4µm, PDAF, OIS<br>
-                                                    12 MP, f/2.0, 52mm (telephoto), 1/3.4", 1.0µm, PDAF, OIS, 2x optical zoom<br>
-                                                    12 MP, f/2.4, 13mm (ultrawide)<br>
-                                                    <strong>Feature:</strong>	Quad-LED dual-tone flash, HDR (photo/panorama)<br>
-                                                    <strong>Video:</strong>	2160p@24/30/60fps, 1080p@30/60/120/240fps, HDR, stereo sound rec.</p>
-                                        </li>
-                                        <li><strong>SELFIE CAMERA:</strong>
-                                            <p><strong>Dual:</strong>	12 MP, f/2.2
-                                                    TOF 3D camera<br>
-                                                    <strong>Features:</strong>	HDR<br>
-                                                    <strong>Video:</strong>	2160p@24/30/60fps, 1080p@30/60/120fps, gyro-EIS</p>
-                                        </li>
-                                        <li><strong>SOUND:</strong>
-                                            <p><strong>Loudspeaker:</strong>	Yes, with stereo speakers<br>
-                                                    <strong>3.5mm jack:</strong>	No
-                                                         Active noise cancellation with dedicated mic
-                                                    Dolby Atmos<br>
-                                                    Dolby Digital Plus</p>
-                                        </li>
-                                        <li><strong>COMMS:</strong>
-                                            <p><strong>WLAN:</strong>	Wi-Fi 802.11 a/b/g/n/ac/ax, dual-band, hotspot<br>
-                                                    <strong>Bluetooth:</strong>	5.0, A2DP, LE<br>
-                                                   <strong> GPS:</strong>	Yes, with A-GPS, GLONASS, GALILEO, QZSS<br>
-                                                   <strong> NFC:</strong>	Yes<br>
-                                                   <strong> Radio:</strong>	No<br>
-                                                   <strong> USB:</strong>	2.0, proprietary reversible connector</p>
-                                        </li>
-                                        <li><strong>FEATURES:</strong>
-                                            <p><strong>Sensors:</strong>	Face ID, accelerometer, gyro, proximity, compass, barometer
-                                                    Siri natural language commands and dictation</p>
-                                        </li>
-                                        <li><strong>BATTERY:</strong>
-                                            <p> 	<strong>Non-removable:</strong> Li-Ion 3969 mAh battery (15.04 Wh)<br>
-                                                   <strong> Charging:</strong>	Fast battery charging 18W: 50% in 30 min
-                                                    USB Power Delivery 2.0
-                                                    Qi wireless charging<br>
-                                                   <strong> Talk time:</strong>	Up to 20 h (multimedia)<br>
-                                                    <strong>Music play:</strong>	Up to 80 h</p>
-                                        </li>
-                                        <li><strong>MISC:</strong>
-                                            <p><strong>Colors:</strong>	Space Gray, Silver, Gold, Midnight Green (matte colors)<br>
-                                                   <strong> Models:	</strong>A2218, A2161, A2220<br>
-                                                   <strong> SAR:</strong>	1.16 W/kg (head)     1.17 W/kg (body) <br>   
-                                                   <strong> SAR EU:</strong>	0.95 W/kg (head)     0.99 W/kg (body) <br>   
-                                                   <strong> Price:</strong>	<span id="price">$1100 dollars</span><br></p>
-                                        </li>                
-                                      </ul>
-                                      <div class="btn-heading">
-                                            <input type="button" class="btn btn-block" id="btn-color" value="Add_To_Cart">
-                                          </div>
-                                  </div>
-                              </div>
-                          </div>
-                        
-                      </div>
+          <div class="display-block" id="add-class1">
+            <div class="search">
+              <div class="search-box" id="f">
+                <h5><span>Mobile</span>-Specification</h5>
+              </div>
+            </div>
+            <div class="mobile-details">
+              <div class="mobile-img">
+                <div class="mobile-div">
+                  <div class="pic-of-mobile">
+                  </div>
+                  <div class="mobile-name">
+                    <span class="mobile-n">Apple Iphone X</span>
+                    <span class="mobile-p">$1100</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mobile-spec">
+                <div class="mobile-func">
+                  <ul>
+                    <li><strong>NETWORK:</strong>
+                      <p>GSM / CDMA / HSPA / EVDO / LTE</p>
+                    </li>
+                    <li><strong>LAUNCH:</strong>
+                      <p>2019, September</p>
+                    </li>
+                    <li><strong>BODY:</strong>
+                      <p><strong>Dimensions:</strong> 158 x 77.8 x 8.1 mm (6.22 x 3.06 x 0.32 in)<br>
+                        <strong> Weight:</strong> 226 g (7.97 oz)<br>
+                        <strong> Build:</strong> Front/back glass, stainless steel frame<br>
+                        <strong> SIM:</strong> Single SIM (Nano-SIM and/or Electronic SIM card) or Dual SIM (Nano-SIM,
+                        dual stand-by) - for China<br>
+                        IP68 dust/water resistant (up to 4m for 30 mins)
+                        Apple Pay (Visa, MasterCard, AMEX certified)
+                      </p>
+                    </li>
+                    <li><strong>DISPLAY:</strong>
+                      <p><strong>Type:</strong> Super Retina XDR OLED capacitive touchscreen, 16M colors<br>
+                        <strong> Size: </strong>6.5 inches, 102.9 cm2 (~83.7% screen-to-body ratio)<br>
+                        <strong> Resolution: </strong>1242 x 2688 pixels, 19.5:9 ratio (~458 ppi density)<br>
+                        <strong> Protection:</strong> Scratch-resistant glass, oleophobic coating
+                        800 nits
+                        Dolby Vision
+                        HDR10
+                        Wide color gamut
+                        True-tone
+                        120 Hz touch-sensing</p>
+                    </li>
+                    <li><strong>PLATFORM:</strong>
+                      <p><strong>OS:</strong> iOS 13<br>
+                        <strong>Chipset:</strong> Apple A13 Bionic (7 nm+)<br>
+                        <strong>CPU:</strong> Hexa-core (2x2.65 GHz Lightning + 4x1.8 GHz Thunder)<br>
+                        <strong>GPU:</strong> Apple GPU (4-core graphics)</p>
+                    </li>
+                    <li><strong>MEMORY:</strong>
+                      <p><strong>Card slot:</strong> No<br>
+                        <strong>Internal:</strong> 64GB 4GB RAM, 256GB 4GB RAM, 512GB 4GB RAM</p>
+                    </li>
+                    <li><strong>MAIN CAMERA</strong>
+                      <p><strong>Triple:</strong> 12 MP, f/1.8, 26mm (wide), 1/2.55", 1.4µm, PDAF, OIS<br>
+                        12 MP, f/2.0, 52mm (telephoto), 1/3.4", 1.0µm, PDAF, OIS, 2x optical zoom<br>
+                        12 MP, f/2.4, 13mm (ultrawide)<br>
+                        <strong>Feature:</strong> Quad-LED dual-tone flash, HDR (photo/panorama)<br>
+                        <strong>Video:</strong> 2160p@24/30/60fps, 1080p@30/60/120/240fps, HDR, stereo sound rec.</p>
+                    </li>
+                    <li><strong>SELFIE CAMERA:</strong>
+                      <p><strong>Dual:</strong> 12 MP, f/2.2
+                        TOF 3D camera<br>
+                        <strong>Features:</strong> HDR<br>
+                        <strong>Video:</strong> 2160p@24/30/60fps, 1080p@30/60/120fps, gyro-EIS</p>
+                    </li>
+                    <li><strong>SOUND:</strong>
+                      <p><strong>Loudspeaker:</strong> Yes, with stereo speakers<br>
+                        <strong>3.5mm jack:</strong> No
+                        Active noise cancellation with dedicated mic
+                        Dolby Atmos<br>
+                        Dolby Digital Plus</p>
+                    </li>
+                    <li><strong>COMMS:</strong>
+                      <p><strong>WLAN:</strong> Wi-Fi 802.11 a/b/g/n/ac/ax, dual-band, hotspot<br>
+                        <strong>Bluetooth:</strong> 5.0, A2DP, LE<br>
+                        <strong> GPS:</strong> Yes, with A-GPS, GLONASS, GALILEO, QZSS<br>
+                        <strong> NFC:</strong> Yes<br>
+                        <strong> Radio:</strong> No<br>
+                        <strong> USB:</strong> 2.0, proprietary reversible connector</p>
+                    </li>
+                    <li><strong>FEATURES:</strong>
+                      <p><strong>Sensors:</strong> Face ID, accelerometer, gyro, proximity, compass, barometer
+                        Siri natural language commands and dictation</p>
+                    </li>
+                    <li><strong>BATTERY:</strong>
+                      <p> <strong>Non-removable:</strong> Li-Ion 3969 mAh battery (15.04 Wh)<br>
+                        <strong> Charging:</strong> Fast battery charging 18W: 50% in 30 min
+                        USB Power Delivery 2.0
+                        Qi wireless charging<br>
+                        <strong> Talk time:</strong> Up to 20 h (multimedia)<br>
+                        <strong>Music play:</strong> Up to 80 h</p>
+                    </li>
+                    <li><strong>MISC:</strong>
+                      <p><strong>Colors:</strong> Space Gray, Silver, Gold, Midnight Green (matte colors)<br>
+                        <strong> Models: </strong>A2218, A2161, A2220<br>
+                        <strong> SAR:</strong> 1.16 W/kg (head) 1.17 W/kg (body) <br>
+                        <strong> SAR EU:</strong> 0.95 W/kg (head) 0.99 W/kg (body) <br>
+                        <strong> Price:</strong> <span id="price">$1100 dollars</span><br></p>
+                    </li>
+                  </ul>
+                  <div class="btn-heading">
+                    <input type="button" class="btn btn-block" id="btn-color" value="Add_To_Cart">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
@@ -288,34 +296,37 @@
   </div>
   <input name="animation" type="hidden" />
   <script>
-      
-function decreaseValue(val1) {
-  var value = parseInt(val1.nextElementSibling.value, 10);
-  console.log(value);
-  value = isNaN(value) ? 0 : value;
-  // value < 1 ? value = 1 : '';
-  if (value<1){
-    value=0;
-  }
-  else{
-    value--;
-  }
-  val1.nextElementSibling.value = value;
-  console.log(val1.nextElementSibling.value);
-}
-function increaseValue(val2) {
-  var value = parseInt(val2.previousElementSibling.value, 10);
-  console.log(value);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  val2.previousElementSibling.value = value;
-  console.log(val2.previousElementSibling.value);
-}
-function fn_remove(e){
-  console.log("@3231");
-  e.parentElement.parentElement.remove();
-}
+
+    function decreaseValue(val1) {
+      var value = parseInt(val1.nextElementSibling.value, 10);
+      console.log(value);
+      value = isNaN(value) ? 0 : value;
+      // value < 1 ? value = 1 : '';
+      if (value < 1) {
+        value = 0;
+      }
+      else {
+        value--;
+      }
+      val1.nextElementSibling.value = value;
+      console.log(val1.nextElementSibling.value);
+    }
+    function increaseValue(val2) {
+      var value = parseInt(val2.previousElementSibling.value, 10);
+      console.log(value);
+      value = isNaN(value) ? 0 : value;
+      value++;
+      val2.previousElementSibling.value = value;
+      console.log(val2.previousElementSibling.value);
+    }
+    function fn_remove(e) {
+      console.log("@3231");
+      e.parentElement.parentElement.remove();
+    }
   </script>
+
+<script src="./mobile-detail.js"></script>
+
 </body>
 
 </html>

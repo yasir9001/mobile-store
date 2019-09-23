@@ -30,6 +30,11 @@
   <link rel="stylesheet" href="./../../css/style.css" />
   <link rel="preload" as="style" href="./../../assets/mobirise/css/mbr-additional.css" />
   <link rel="stylesheet" href="./../../assets/mobirise/css/mbr-additional.css" type="text/css" />
+
+  <!-- load firebase web sdk -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+  <!-- load the firebase config file -->
+  <script src="./../../firebaseConfig.js"></script>
 </head>
 
 <body>
@@ -74,7 +79,8 @@
                 <img src="./../../assets/images/basic-tablet.png" alt="Mobirise" title="" style="height: 3.8rem;" />
               </a>
             </span>
-            <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5" href="./../../index.html">Mobile
+            <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5"
+                href="./../../index.html">Mobile
                 Store</a></span>
           </div>
         </div>
@@ -100,7 +106,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link link text-white display-4" href="#"><span
+              <a onclick="signout()" class="nav-link link text-white display-4" href="#"><span
                   class="mbrib-login mbr-iconfont mbr-iconfont-btn"></span>Sign out</a>
             </li>
           </ul>
@@ -111,80 +117,86 @@
     <section class="products">
       <div class="product-groups">
         <div class="main-panel">
-                <div class="display-block" id="add-class1" >
-                        <div class="search">
-                          <div class="search-box" id="f">
-                            <h5>Order</h5>
-                          </div>
-                        </div>
-                        <div class="display-components">
-                          <div class="user-list">
-                            <div class="user-heading">
-                              Order-Place-Details:
-                            </div>
-                            <div class="user-table">
-                                    <form>
-                                            <div class="form-group row">
-                                              <label for="staticEmail" class="col-sm-2 col-form-label">Name:</label>
-                                              <div class="col-sm-10">
-                                                <input type="text" class="form-control-plaintext" id="staticEmail" required placeholder="Enter Name">
-                                              </div>
-                                            </div>
-                      
-                                            <!-- <div class="form-group row">
+          <div class="display-block" id="add-class1">
+            <div class="search">
+              <div class="search-box" id="f">
+                <h5>Order</h5>
+              </div>
+            </div>
+            <div class="display-components">
+              <div class="user-list">
+                <div class="user-heading">
+                  Order-Place-Details:
+                </div>
+                <div class="user-table">
+                  <form>
+                    <div class="form-group row">
+                      <label for="staticEmail" class="col-sm-2 col-form-label">Name:</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control-plaintext" id="staticEmail" required
+                          placeholder="Enter Name">
+                      </div>
+                    </div>
+
+                    <!-- <div class="form-group row">
                                               <label for="inputPassword" class="col-sm-2 col-form-label">Email:</label>
                                               <div class="col-sm-10">
                                                 <input type="text" class="form-control-plaintext" id="staticEmail" required placeholder="Enter name">
                                               </div>
                                             </div> -->
-                      
-                                            <div class="form-group row">
-                                              <label for="inputPassword" class="col-sm-2 col-form-label">Address:</label>
-                                              <div class="col-sm-10">
-                                                <input type="text" class="form-control-plaintext" id="staticEmail" required placeholder="Enter Address">
-                                              </div>
-                                            </div>
-                      
-                                            <div class="form-group row">
-                                              <label for="inputPassword" class="col-sm-2 col-form-label">City:</label>
-                                              <div class="col-sm-10">
-                                                <input type="text" class="form-control-plaintext" id="staticEmail" required placeholder="Enter City">
-                                              </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                    <label for="gender" class="col-md-2 control-label">Payment Method:</label>
-                                                    <div class="col-set">
-                                                      <div class="radio1">
-                                                          <label><input type="radio" name="gender" value="0" onclick="fn_check(this)" > :Cash on Delivery</label>
-                                                        </div>
-                                                     <div class="radio1">
-                                                          <label><input type="radio" name="gender" value="1" onclick="fn_check(this)"> :Online Card</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                        <label for="inputPassword" class="col-sm-2 col-form-label">ATM Card No:</label>
-                                                        <div class="col-sm-10">
-                                                          <input type="text" class="form-control-plaintext staticEmail1" id="staticEmail" required placeholder="Enter Master card or any other">
-                                                        </div>
-                                                      </div>
-                      
-                                            <div class="form-group row">
-                                              <label for="inputPassword" class="col-sm-2 col-form-label">Order-Item:</label>
-                                              <div class="col-sm-10">
-                                                <!-- <input type="text" class="form-control-plaintext" id="staticEmail" required placeholder="Enter Image path"> -->
-                                                <textarea class="form-control" rows="5" id="comment" readonly></textarea>
-                                              </div>
-                                            </div>
-                      
-                                          </form>
-                            </div>
-                            <div class="btn-heading">
-                                <input type="button" class="btn btn-block" id="btn-color" value="Order Now">
-                              </div>
-                          </div>
+
+                    <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Address:</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control-plaintext" id="staticEmail" required
+                          placeholder="Enter Address">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">City:</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control-plaintext" id="staticEmail" required
+                          placeholder="Enter City">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="gender" class="col-md-2 control-label">Payment Method:</label>
+                      <div class="col-set">
+                        <div class="radio1">
+                          <label><input type="radio" name="gender" value="0" onclick="fn_check(this)"> :Cash on
+                            Delivery</label>
+                        </div>
+                        <div class="radio1">
+                          <label><input type="radio" name="gender" value="1" onclick="fn_check(this)"> :Online
+                            Card</label>
                         </div>
                       </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">ATM Card No:</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control-plaintext staticEmail1" id="staticEmail" required
+                          placeholder="Enter Master card or any other">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Order-Item:</label>
+                      <div class="col-sm-10">
+                        <!-- <input type="text" class="form-control-plaintext" id="staticEmail" required placeholder="Enter Image path"> -->
+                        <textarea class="form-control" rows="5" id="comment" readonly></textarea>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+                <div class="btn-heading">
+                  <input type="button" class="btn btn-block" id="btn-color" value="Order Now">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -249,21 +261,24 @@
   </div>
   <input name="animation" type="hidden" />
   <script>
-      
-      function fn_check(check){
-        let value=check.value;
-        document.querySelector(".staticEmail1").value="";
-        if(value==1){
-            console.log(value);
-            document.querySelector(".staticEmail1").disabled=false;
-        }
-        else{
-            console.log(value);
-            document.querySelector(".staticEmail1").disabled=true;
-        }
 
+    function fn_check(check) {
+      let value = check.value;
+      document.querySelector(".staticEmail1").value = "";
+      if (value == 1) {
+        console.log(value);
+        document.querySelector(".staticEmail1").disabled = false;
       }
+      else {
+        console.log(value);
+        document.querySelector(".staticEmail1").disabled = true;
+      }
+
+    }
   </script>
+
+<script src="./checkout.js"></script>
+
 </body>
 
 </html>

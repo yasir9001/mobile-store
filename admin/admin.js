@@ -17,6 +17,7 @@
                     </tr>`
                 )
             }).join('')
+            console.log(arr)
         })
 
         db.child('mobiles').on('value', (snap) => {
@@ -89,5 +90,6 @@ function removeMobile(e) {
 // removes user
 function removeUser() {
     let input = document.querySelector('#del-user-id');
+    if(input.value == "" ) return
     _db.child(`users/${input.value}`).remove().then(() => input.value = "")
 }

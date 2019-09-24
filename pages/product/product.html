@@ -123,11 +123,11 @@
           </div>
           <div class="brands-name">
             <ul id="cols">
-              <li><a href="#">All</a></li>
-              <li><a href="#">Samsung</a></li>
-              <li><a href="#">Apple</a></li>
-              <li><a href="#">Nokia</a></li>
-              <li><a href="#">LG</a></li>
+              <li><a href="JavaScript:void(0)" onclick="filterBrands('all')">All</a></li>
+              <li><a href="JavaScript:void(0)" onclick="filterBrands('samsung')" >Samsung</a></li>
+              <li><a href="JavaScript:void(0)" onclick="filterBrands('apple')" >Apple</a></li>
+              <li><a href="JavaScript:void(0)" onclick="filterBrands('nokia')" >Nokia</a></li>
+              <li><a href="JavaScript:void(0)" onclick="filterBrands('lg')" >LG</a></li>
             </ul>
           </div>
         </div>
@@ -135,7 +135,7 @@
           <div class="display-block">
             <div class="search">
               <div class="search-box">
-                <input type="text" />
+                <input type="text" id="search-box" onkeyup="filterMobiles(this)" onchange="filterMobiles(this)" />
                 <img src="./../../img/magnifier.png" />
               </div>
             </div>

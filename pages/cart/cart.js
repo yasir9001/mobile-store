@@ -75,3 +75,9 @@ function removeFromCart(e) {
     _db.child(`carts/${uid}/${e.dataset.cartitemid}`).remove().catch((err) => console.log(err))
     console.log(e.dataset)
 }
+
+
+function checkOut(e){
+    console.log(e)
+    location = './../checkout/checkout.html'
+}

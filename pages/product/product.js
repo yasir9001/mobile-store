@@ -34,7 +34,6 @@ let __mobileDataArray;
             }
           })//inner for each closed
         })
-        console.table(mobiles)
 
         __mobileDataArray = mobiles;
         target.innerHTML = "";

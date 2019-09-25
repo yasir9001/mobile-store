@@ -31,11 +31,11 @@
   <link rel="preload" as="style" href="./../../assets/mobirise/css/mbr-additional.css" />
   <link rel="stylesheet" href="./../../assets/mobirise/css/mbr-additional.css" type="text/css" />
 
-  
-    <!-- load firebase web sdk -->
-    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
-    <!-- load the firebase config file -->
-    <script src="./../../firebaseConfig.js"></script>
+
+  <!-- load firebase web sdk -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+  <!-- load the firebase config file -->
+  <script src="./../../firebaseConfig.js"></script>
 </head>
 
 <body>
@@ -80,7 +80,8 @@
                 <img src="./../../assets/images/basic-tablet.png" alt="Mobirise" title="" style="height: 3.8rem;" />
               </a>
             </span>
-            <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5" href="./../../index.html">Mobile
+            <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5"
+                href="./../../index.html">Mobile
                 Store</a></span>
           </div>
         </div>
@@ -117,63 +118,43 @@
     <section class="products">
       <div class="product-groups">
         <div class="main-panel">
-                <div class="display-block" id="add-class1" >
-                        <div class="search">
-                          <div class="search-box" id="f">
-                            <h5>Cart</h5>
-                          </div>
-                        </div>
-                        <div class="display-components">
-                          <div class="user-list">
-                            <div class="user-heading">
-                              Cart List:
-                            </div>
-                            <div class="user-table">
-                              <table class="table">
-                                <thead class="thead-dark">
-                                  <tr>
-                                    <th scope="col">S.No #</th>
-                                    <th scope="col">Product-Name</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Remove Item</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>
-                                      <div class="quantity-set">
-                                      <div class="value-button" id="decrease" onclick="decreaseValue(this)" value="Decrease Value">-</div>
-                                        <input type="number" id="number" value="0" readonly />
-                                      <div class="value-button" id="increase" onclick="increaseValue(this)" value="Increase Value">+</div>
-                                    </div>
-                                    </td>
-
-                                    <td>$1100</td>
-                                    <td><a id="data-kill" onclick="fn_remove(this);">&times;</a></td>
-                                  </tr>
-                                  <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td><div class="quantity-set">
-                                            <div class="value-button" id="decrease" onclick="decreaseValue(this)" value="Decrease Value">-</div>
-                                              <input type="number" id="number" value="0" readonly />
-                                            <div class="value-button" id="increase" onclick="increaseValue(this)" value="Increase Value">+</div>
-                                          </div></td>
-                                        <td>$1100</td>
-                                        <td><a id="data-kill" onclick="fn_remove(this);">&times;</a></td>
-                                      </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                            <div class="btn-heading">
-                                <input type="button" class="btn btn-block" id="btn-color" value="Check-Out">
-                              </div>
-                          </div>
-                        </div>
-                      </div>
+          <div class="display-block" id="add-class1">
+            <div class="search">
+              <div class="search-box" id="f">
+                <h5>Cart</h5>
+              </div>
+            </div>
+            <div class="display-components">
+              <div class="user-list">
+                <div class="user-heading">
+                  Cart List:
+                </div>
+                <div class="user-table">
+                  <table class="table" id="cart-items">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">S.No #</th>
+                        <th scope="col">Product-Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Remove Item</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>$1100</td>
+                        <td><a id="data-kill" onclick="fn_remove(this);">&times;</a></td>
+                      </tr> -->
+                    </tbody>
+                  </table>
+                </div>
+                <div class="btn-heading">
+                  <input type="button" class="btn btn-block" id="btn-color" value="Check-Out">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -238,33 +219,33 @@
   </div>
   <input name="animation" type="hidden" />
   <script>
-      
-function decreaseValue(val1) {
-  var value = parseInt(val1.nextElementSibling.value, 10);
-  console.log(value);
-  value = isNaN(value) ? 0 : value;
-  // value < 1 ? value = 1 : '';
-  if (value<1){
-    value=0;
-  }
-  else{
-    value--;
-  }
-  val1.nextElementSibling.value = value;
-  console.log(val1.nextElementSibling.value);
-}
-function increaseValue(val2) {
-  var value = parseInt(val2.previousElementSibling.value, 10);
-  console.log(value);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  val2.previousElementSibling.value = value;
-  console.log(val2.previousElementSibling.value);
-}
-function fn_remove(e){
-  console.log("@3231");
-  e.parentElement.parentElement.remove();
-}
+
+    function decreaseValue(val1) {
+      var value = parseInt(val1.nextElementSibling.value, 10);
+      console.log(value);
+      value = isNaN(value) ? 0 : value;
+      // value < 1 ? value = 1 : '';
+      if (value < 1) {
+        value = 0;
+      }
+      else {
+        value--;
+      }
+      val1.nextElementSibling.value = value;
+      console.log(val1.nextElementSibling.value);
+    }
+    function increaseValue(val2) {
+      var value = parseInt(val2.previousElementSibling.value, 10);
+      console.log(value);
+      value = isNaN(value) ? 0 : value;
+      value++;
+      val2.previousElementSibling.value = value;
+      console.log(val2.previousElementSibling.value);
+    }
+    function fn_remove(e) {
+      console.log("@3231");
+      e.parentElement.parentElement.remove();
+    }
   </script>
 
   <script src="./cart.js"></script>
